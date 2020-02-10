@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const AuthController = require("./controllers/AuthController");
 const UserController = require("./controllers/UserController");
-const { checkJwt } = require("./middleware/auth");
+const { checkJwt, isValidUser } = require("./middleware/auth");
 
 router.post('/register', async(req, res, next) => {
     await AuthController.registerUser(req, res, next);

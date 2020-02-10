@@ -22,7 +22,7 @@ const extractTokenFromHeader = (req) => {
  */
 exports.isValidUser = (req, res, next) => {
     if (passport.authenticate("jwt", { session: false })) {
-        return res.status(401).json({ success: false, message: "UnAuthorized Request! " });
+        return res.status(401).json({ success: false, msg: "UnAuthorized Request! " });
     } else { return res.status(401).json({msg: "UnAuthorized Request!" }); }
 };
 

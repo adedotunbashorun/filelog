@@ -11,9 +11,9 @@ class AuthController {
         try {
             const user = await this.auth.create(req);
             const token = jwt.sign({ username: user.username, email: user.email, userId: user.id }, config.app.JWT_SECRET, { expiresIn: "1h" });
-            res.status(200).json({ success: true, user, token });
+            return res.status(200).json({ success: true, user, token });
         } catch (error) {
-            res.status(401).json({ success: false, error, msg: error.message });
+            return res.status(401).json({ success: false, error, msg: error.message });
         }
 
     }
@@ -25,9 +25,9 @@ class AuthController {
             user.is_active = true;
             user.save();
 
-            res.status(200).json({ success: true, user, msg: "user activated successfully" });
+            return res.status(200).json({ success: true, user, msg: "user activated successfully" });
         } catch (error) {
-            res.status(401).json({ success: false, error, msg: error.message });
+            return res.status(401).json({ success: false, error, msg: error.message });
         }
 
     }
@@ -43,7 +43,7 @@ class AuthController {
                 req.logIn(user, { session: false }, (err) => {
                     if (err) { return res.json(err.message); }
                     const token = jwt.sign({ username: user.username, email: user.email, userId: user.id }, config.app.JWT_SECRET, { expiresIn: "1h" });
-                    res.status(200).json({ user, token });
+                    return res.status(200).json({ user, token });
                 });
             }
         })(req, res, next);

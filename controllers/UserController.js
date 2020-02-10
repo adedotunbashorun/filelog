@@ -12,9 +12,9 @@ class UserController extends AbstractController {
         try {
             const user= await this.user.create(req);
 
-            res.status(200).json({ success: true, user, msg: "user created successfully!" });
+            return res.status(200).json({ success: true, user, msg: "user created successfully!" });
         } catch (error) {
-            res.status(401).json({ success: false, error, msg: error.message });
+            return res.status(401).json({ success: false, error, msg: error.message });
         }
 
     }
@@ -23,9 +23,9 @@ class UserController extends AbstractController {
         try {
             const user= await this.user.update(req);
 
-            res.status(200).json({ success: true, user, msg: "user updated successfully" });
+            return res.status(200).json({ success: true, user, msg: "user updated successfully" });
         } catch (error) {
-            res.status(401).json({ success: false, error, msg: error.message });
+            return res.status(401).json({ success: false, error, msg: error.message });
         }
     }
 
@@ -33,10 +33,10 @@ class UserController extends AbstractController {
         try {
             const user= await this.repository.findById(req.params.userId);
 
-            res.status(200).json({ success: true, user });
+            return res.status(200).json({ success: true, user });
 
         } catch (error) {
-            res.status(401).json({ success: false, error, msg: error.message });
+            return res.status(401).json({ success: false, error, msg: error.message });
         }
     }
 }
