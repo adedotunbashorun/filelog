@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt-nodejs");
+const bcrypt = require("bcryptjs");
 
 const userSchema = new mongoose.Schema({
     first_name: { type: String, default: null },
@@ -10,23 +10,16 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         required: true,
         validate: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid email address"],
-        match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid email address"],
+        // match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid email address"],
         index: { unique: true },
     },
     phone: { type: String},
     password: { type: String},
     profile_image: { type: String, default: null },
     cloud_image: { type: String, default: null },
-    is_active: { type: Boolean, required: true, default: false },
+    is_active: { type: Boolean, default: false },
     deleted_at: {type: String, default: null },
 }, { timestamps: true });
-
-// userSchema.pre<IUserM>("save", function save(next) {
-//     const user = this;
-//     const hash = bcrypt.hashSync(this.password);
-//     user.password = hash;
-//     next();
-// });
 
 userSchema.methods.comparePassword = function(candidatePassword) {
     return bcrypt.compareSync(candidatePassword, this.password);
