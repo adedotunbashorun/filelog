@@ -1,0 +1,45 @@
+{
+  "name": "filelog",
+  "version": "1.0.0",
+  "description": "a file saving app",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adedotunbashorun/filelog.git"
+  },
+  "keywords": [
+    "file",
+    "repository",
+    "cloud"
+  ],
+  "author": "Adedotun Bashorun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adedotunbashorun/filelog/issues"
+  },
+  "homepage": "https://github.com/adedotunbashorun/filelog#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.11",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.4.2",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pusher": "^3.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.2"
+  }
+}
