@@ -4,9 +4,8 @@ const nodemailer = require("nodemailer");
 const { config } = require("../config/app");
 
 class CoreService {
-
     client;
-
+    
     constructor() {
         this.client = nodemailer.createTransport({
             service: "SendGrid",
