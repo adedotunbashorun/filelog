@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 const cors = require("cors");
 const { config } = require("./config/app");
-const isAuth = require('./middleware/is-auth');
 const express = require("express");
 const passport = require("passport");
 const router = require("./route");
@@ -20,7 +19,6 @@ class AppServer {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: true}));
         this.app.use(cors());
-        this.app.use(isAuth);
         this.app.use(morgan("dev"));
         require("./config/passport");
         this.mongo();
