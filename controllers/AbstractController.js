@@ -1,8 +1,9 @@
 class AbstractController {
-    static repository;
-    constructor(repository) {
-        this.repository = repository;
-    }
+    static repository = new Proxy({}, {
+        get() { 
+            throw new Error('AbstractController requires its subclass to have a static field named \'repository\'')
+        }
+    });
 
     static async index(req, res) {
         try {

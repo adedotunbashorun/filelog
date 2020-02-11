@@ -4,9 +4,7 @@ const UserRepository  = require("../abstract/UserRepository");
 
 class UserController extends AbstractController {
     static user = new UserService();
-    constructor() {
-        super(new UserRepository());
-    }
+    static repository = new UserRepository();
 
     static async registerUser(req, res) {
         try {
