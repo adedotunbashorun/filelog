@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const { config } = require("../config/app");
 const UserService = require("../service/UserService");
-const UserRepository  = require("../abstract/UserRepository");
+const UserRepository  = require("../repository/UserRepository");
 class AuthController {
     static auth = new UserService(); static repository = new UserRepository();
     
