@@ -1,7 +1,7 @@
 
 const Core = require("./CoreService");
 const Notification = require("./NotificationsService");
-const UserRepository = require("../abstract/UserRepository");
+const UserRepository = require("../repository/UserRepository");
 const File = require("../utilities/file");
 const bcrypt = require("bcryptjs");
 

@@ -1,6 +1,6 @@
 const AbstractController  = require("./AbstractController");
 const UserService = require("../service/UserService");
-const UserRepository  = require("../abstract/UserRepository");
+const UserRepository  = require("../repository/UserRepository");
 
 class UserController extends AbstractController {
     static user = new UserService();
